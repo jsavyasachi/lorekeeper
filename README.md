@@ -2,6 +2,12 @@
 
 Build and maintain a persistent, LLM-curated wiki from your sources.
 
+## Stack
+
+<a href="https://www.typescriptlang.org"><img src="https://img.shields.io/badge/TypeScript-3178C6?style=flat&logo=typescript&logoColor=white" alt="TypeScript" /></a>
+<a href="https://nodejs.org"><img src="https://img.shields.io/badge/Node.js-5FA04E?style=flat&logo=nodedotjs&logoColor=white" alt="Node.js" /></a>
+<a href="https://vitest.dev"><img src="https://img.shields.io/badge/Vitest-6E9F18?style=flat&logo=vitest&logoColor=white" alt="Vitest" /></a>
+
 A concrete implementation of [Karpathy's LLM Wiki pattern](https://gist.github.com/karpathy/442a6bf555914893e9891c11519de94f). Instead of re-deriving knowledge via RAG on every query, an LLM incrementally builds and maintains an Obsidian-compatible markdown wiki that compounds as you feed it more sources.
 
 > **See it in action:** browse [`examples/lorekeeper-demo-vault/`](examples/lorekeeper-demo-vault) for a real wiki built from arXiv papers on agent memory architectures.
