@@ -2,7 +2,7 @@
  * Obsidian-style wikilink parsing: `[[target]]`, `[[target|alias]]`,
  * `[[target#heading]]`, `[[target#heading|alias]]`.
  *
- * We do NOT support embedded links (`![[...]]`) specially — they parse as
+ * We do NOT support embedded links (`![[...]]`) specially - they parse as
  * regular wikilinks with `embedded: true`.
  */
 

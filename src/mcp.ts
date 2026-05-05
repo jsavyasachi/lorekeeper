@@ -11,7 +11,7 @@ import { pullPapers } from './ops/pull.js';
 
 /**
  * MCP server exposing lorekeeper ops. The vault path is fixed at startup via
- * `--vault <dir>` — a single server instance targets a single vault, which
+ * `--vault <dir>` - a single server instance targets a single vault, which
  * keeps the tool surface simple and avoids cross-vault confusion.
  */
 
@@ -171,7 +171,7 @@ async function main(): Promise<void> {
   const transport = new StdioServerTransport();
   await server.connect(transport);
   // Log startup on stderr so it doesn't pollute the MCP stdio stream.
-  console.error(`lorekeeper-mcp connected — vault: ${vault.root}`);
+  console.error(`lorekeeper-mcp connected - vault: ${vault.root}`);
 }
 
 main().catch((err) => {

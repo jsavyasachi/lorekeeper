@@ -49,7 +49,7 @@ function slugifyFilename(name: string): string {
  * page path, or null if no page links to the source.
  *
  * This is the post-hoc verification for Bug #1: the SDK reporting `success`
- * is necessary but not sufficient — we need proof that a page was actually
+ * is necessary but not sufficient - we need proof that a page was actually
  * written for this ingest.
  */
 async function findPageForSource(vault: Vault, sourceInVault: string): Promise<string | null> {
@@ -96,7 +96,7 @@ export async function ingestSource(opts: IngestOptions): Promise<IngestResult> {
   const destAbs = path.join(sourcesDir, destName);
   const sourceInVault = path.join('sources', destName);
 
-  // If already present, don't overwrite — treat as re-ingest request.
+  // If already present, don't overwrite - treat as re-ingest request.
   let wasNew = true;
   try {
     await fs.stat(destAbs);

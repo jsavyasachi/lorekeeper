@@ -117,10 +117,10 @@ describe('listPages', () => {
     await writeFileInVault(v, 'index.md', '# root');
     await writeFileInVault(v, 'papers/foo.md', '# foo');
     await writeFileInVault(v, 'concepts/bar.md', '# bar');
-    // A file inside sources/ — should be skipped.
+    // A file inside sources/ - should be skipped.
     await fs.mkdir(path.join(v.root, 'sources'), { recursive: true });
     await fs.writeFile(path.join(v.root, 'sources', 'raw.md'), '# raw');
-    // A file inside .lorekeeper/ — should be skipped.
+    // A file inside .lorekeeper/ - should be skipped.
     await fs.writeFile(path.join(v.root, '.lorekeeper', 'notes.md'), '# notes');
 
     const pages = await listPages(v);

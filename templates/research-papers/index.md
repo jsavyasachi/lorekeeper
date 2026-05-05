@@ -5,7 +5,7 @@ title: Research Wiki
 
 # Research Wiki
 
-This vault is a compounding knowledge base built by [lorekeeper](https://github.com/savya/lorekeeper) from research papers you ingest. Each ingest extends the graph — it does not start over.
+This vault is a compounding knowledge base built by [lorekeeper](https://github.com/savya/lorekeeper) from research papers you ingest. Each ingest extends the graph - it does not start over.
 
 ## How to use this vault
 
@@ -16,10 +16,10 @@ This vault is a compounding knowledge base built by [lorekeeper](https://github.
 
 ## Organization
 
-- **[[papers/|Papers]]** — one page per ingested paper, with summary, methods, findings, and connections
-- **[[concepts/|Concepts]]** — cross-cutting ideas that appear across multiple papers
-- **[[authors/|Authors]]** — researcher pages
-- **[[methods/|Methods]]** — techniques, architectures, algorithms
+- **[[papers/|Papers]]** - one page per ingested paper, with summary, methods, findings, and connections
+- **[[concepts/|Concepts]]** - cross-cutting ideas that appear across multiple papers
+- **[[authors/|Authors]]** - researcher pages
+- **[[methods/|Methods]]** - techniques, architectures, algorithms
 
 ## Recently ingested
 

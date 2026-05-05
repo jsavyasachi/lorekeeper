@@ -11,12 +11,12 @@ A concrete implementation of [Karpathy's LLM Wiki pattern](https://gist.github.c
 ```
 sources/         raw PDFs, articles, notes
     ↓  lorekeeper ingest
-wiki/            interlinked markdown — papers, concepts, authors, methods
+wiki/            interlinked markdown - papers, concepts, authors, methods
     ↓  lorekeeper query "..."
 cited synthesis answers
 ```
 
-Each ingest reads the source, reads existing wiki pages, and updates or creates pages with cross-references. The wiki is plain markdown — browse it in [Obsidian](https://obsidian.md), edit it by hand, commit it to git.
+Each ingest reads the source, reads existing wiki pages, and updates or creates pages with cross-references. The wiki is plain markdown - browse it in [Obsidian](https://obsidian.md), edit it by hand, commit it to git.
 
 ## Install
 
@@ -38,11 +38,11 @@ lorekeeper lint
 
 ## Where your vault lives
 
-A lorekeeper vault is just a directory of markdown files. `lorekeeper init <dir>` creates it at exactly the path you pass — there is no default location, no global registry, and no hidden state outside the vault directory itself.
+A lorekeeper vault is just a directory of markdown files. `lorekeeper init <dir>` creates it at exactly the path you pass - there is no default location, no global registry, and no hidden state outside the vault directory itself.
 
 | Path                      | Contents                                                |
 |---------------------------|---------------------------------------------------------|
-| `CLAUDE.md`               | Schema contract — edit to change how the agent writes   |
+| `CLAUDE.md`               | Schema contract - edit to change how the agent writes   |
 | `.lorekeeper/config.json` | Ingest history (which sources, when)                    |
 | `sources/`                | Raw PDFs, immutable after copy                          |
 | `papers/` `concepts/` `authors/` `methods/` | One markdown page per item           |
@@ -77,19 +77,19 @@ lorekeeper pull "diffusion model sampling" --limit 5 --no-filter
 | `--limit N`      | 20      | Number of papers to ingest                             |
 | `--no-filter`    | off     | Skip the LLM relevance filter; use arXiv ranking       |
 | `--use-scihub`   | off     | Sci-Hub fallback for non-arXiv DOIs (see note below)   |
-| `--model <name>` | —       | Claude model override                                  |
+| `--model <name>` | -       | Claude model override                                  |
 
 Per-paper failures are recorded in the final report and don't halt the batch.
 
 ### Sci-Hub fallback
 
-`--use-scihub` is **off by default and must be passed explicitly per invocation**. Sci-Hub's legality varies by jurisdiction and accessing it may infringe copyright in your country. `lorekeeper` prints a stderr warning the first time it touches Sci-Hub during a run. You are responsible for ensuring your usage is lawful. The default arXiv-only path is unaffected — arXiv is open access.
+`--use-scihub` is **off by default and must be passed explicitly per invocation**. Sci-Hub's legality varies by jurisdiction and accessing it may infringe copyright in your country. `lorekeeper` prints a stderr warning the first time it touches Sci-Hub during a run. You are responsible for ensuring your usage is lawful. The default arXiv-only path is unaffected - arXiv is open access.
 
 The mirror list defaults to `sci-hub.se`, `sci-hub.ru`, `sci-hub.st`. Override with `LOREKEEPER_SCIHUB_MIRRORS` (comma-separated).
 
 ## How it works
 
-Each op spawns a [Claude Agent SDK](https://docs.claude.com/en/api/agent-sdk) session with file tools scoped to the vault directory and a system prompt built from the vault's `CLAUDE.md` schema. The agent decides which pages to create or update — `lorekeeper` enforces the sandbox and streams progress.
+Each op spawns a [Claude Agent SDK](https://docs.claude.com/en/api/agent-sdk) session with file tools scoped to the vault directory and a system prompt built from the vault's `CLAUDE.md` schema. The agent decides which pages to create or update - `lorekeeper` enforces the sandbox and streams progress.
 
 ## MCP server
 

@@ -14,8 +14,8 @@ export interface LintOptions {
 export async function lintVault(opts: LintOptions): Promise<AgentResult> {
   const fix = opts.fix ?? false;
   const userMessage = fix
-    ? `Audit this vault for drift. Fix mode is ENABLED — repair broken wikilinks and missing required frontmatter fields. Do NOT rewrite prose to resolve contradictions; flag those and stop.`
-    : `Audit this vault for drift. Report findings only — do not modify any files.`;
+    ? `Audit this vault for drift. Fix mode is ENABLED - repair broken wikilinks and missing required frontmatter fields. Do NOT rewrite prose to resolve contradictions; flag those and stop.`
+    : `Audit this vault for drift. Report findings only - do not modify any files.`;
 
   return runAgent({
     vault: opts.vault,

@@ -24,7 +24,7 @@ You have READ-ONLY access. Do not attempt to write files.
 
 Rules:
 - Cite specific pages inline using [[target]] wikilinks. Every non-trivial claim gets a citation.
-- If the wiki doesn't contain enough information to answer, say so. Do NOT use your pretraining knowledge to fill gaps — the user is asking what THIS wiki says.
+- If the wiki doesn't contain enough information to answer, say so. Do NOT use your pretraining knowledge to fill gaps - the user is asking what THIS wiki says.
 - Be dense and direct. No filler.
 - Output ONLY the final synthesis. Do not narrate your process, do not write phrases like "Now I have a comprehensive view" or "Let me synthesize the answer". Start directly with the answer.
 
@@ -34,14 +34,14 @@ export const LINT_PROMPT = `You are the lint worker for a lorekeeper research-pa
 
 Your job is to audit the vault for drift and report findings. Check for:
 
-1. Broken wikilinks — targets that don't resolve to an existing page.
-2. Orphaned pages — pages nothing links to (excluding index.md).
-3. Duplicate pages — two pages covering the same entity under different slugs.
-4. Missing frontmatter fields — required fields absent for the page's declared type.
-5. Contradictions — factual claims that disagree across pages.
-6. Stale claims — pages whose ingested date is older than the source's mtime.
+1. Broken wikilinks - targets that don't resolve to an existing page.
+2. Orphaned pages - pages nothing links to (excluding index.md).
+3. Duplicate pages - two pages covering the same entity under different slugs.
+4. Missing frontmatter fields - required fields absent for the page's declared type.
+5. Contradictions - factual claims that disagree across pages.
+6. Stale claims - pages whose ingested date is older than the source's mtime.
 
-Report findings as a bulleted list grouped by category. If fix mode is enabled (stated in the user message), repair only the mechanical issues (broken links, missing frontmatter). NEVER rewrite prose to resolve contradictions automatically — flag them and stop.
+Report findings as a bulleted list grouped by category. If fix mode is enabled (stated in the user message), repair only the mechanical issues (broken links, missing frontmatter). NEVER rewrite prose to resolve contradictions automatically - flag them and stop.
 
 The vault's CLAUDE.md schema is attached below.`;
 

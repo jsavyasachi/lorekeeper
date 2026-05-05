@@ -5,7 +5,7 @@ import type { Vault } from '../core/vault.js';
 import { composeSystemPrompt } from './prompts.js';
 
 /**
- * Agent session wrapper. lorekeeper doesn't define its own tools — it relies
+ * Agent session wrapper. lorekeeper doesn't define its own tools - it relies
  * on Claude Code's built-in file tools (Read/Write/Edit/Glob/Grep) restricted
  * to the vault directory by setting `cwd` and scoping `allowedTools`.
  *
@@ -27,7 +27,7 @@ export interface RunAgentOptions {
   mode: SessionMode;
   /** Optional model override. Defaults to SDK's default. */
   model?: string;
-  /** Max conversation turns. Defaults to 30 — ingest can take many read/write steps. */
+  /** Max conversation turns. Defaults to 30 - ingest can take many read/write steps. */
   maxTurns?: number;
   /** Optional callback invoked with each streamed message (for CLI progress UI). */
   onMessage?: (msg: SDKMessage) => void;
@@ -78,7 +78,7 @@ export async function runAgent(opts: RunAgentOptions): Promise<AgentResult> {
     maxTurns: opts.maxTurns ?? 30,
     permissionMode: 'bypassPermissions',
     allowDangerouslySkipPermissions: true,
-    // Isolate from user/project settings — the vault's CLAUDE.md is the
+    // Isolate from user/project settings - the vault's CLAUDE.md is the
     // authoritative schema and we pass it explicitly via systemPrompt.
     settingSources: [],
     persistSession: false,
@@ -119,7 +119,7 @@ export async function runAgent(opts: RunAgentOptions): Promise<AgentResult> {
       } else {
         ok = false;
         const errSummary = `Agent run failed: ${msg.subtype}${
-          'errors' in msg && msg.errors.length > 0 ? ` — ${msg.errors.join('; ')}` : ''
+          'errors' in msg && msg.errors.length > 0 ? ` - ${msg.errors.join('; ')}` : ''
         }`;
         lastText = lastAssistantText
           ? `${errSummary}\n\n--- partial output before failure ---\n${lastAssistantText}`

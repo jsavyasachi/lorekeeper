@@ -6,13 +6,13 @@ import path from 'node:path';
  * jurisdictions; this module is OFF by default and must be explicitly enabled
  * per `pull` invocation via `--use-scihub`.
  *
- * Mirrors and HTML structure change without notice — keep all scraping
+ * Mirrors and HTML structure change without notice - keep all scraping
  * isolated to this file so fixes don't bleed into the rest of the codebase.
  */
 
 const DEFAULT_MIRRORS = ['https://sci-hub.se', 'https://sci-hub.ru', 'https://sci-hub.st'];
 
-// Browser-ish UA — Sci-Hub mirrors sometimes 403 a bare Node UA.
+// Browser-ish UA - Sci-Hub mirrors sometimes 403 a bare Node UA.
 const USER_AGENT =
   'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0 Safari/537.36';
 
@@ -49,13 +49,13 @@ export function getScihubMirrors(): string[] {
  * Returns null if no candidate src is found.
  */
 export function extractPdfUrl(html: string, mirrorBase: string): string | null {
-  // Match <embed ... src="..."> or <iframe ... src="..."> — Sci-Hub uses both
+  // Match <embed ... src="..."> or <iframe ... src="..."> - Sci-Hub uses both
   // depending on mirror and browser detection.
   const re = /<(?:embed|iframe)\b[^>]*\bsrc\s*=\s*["']([^"']+)["']/i;
   const m = html.match(re);
   if (!m) return null;
   let src = m[1]!.trim();
-  // Strip URL fragments — Sci-Hub appends `#view=FitH` etc.
+  // Strip URL fragments - Sci-Hub appends `#view=FitH` etc.
   const hashIdx = src.indexOf('#');
   if (hashIdx >= 0) src = src.slice(0, hashIdx);
   if (!src) return null;
@@ -66,7 +66,7 @@ export function extractPdfUrl(html: string, mirrorBase: string): string | null {
     const origin = new URL(mirrorBase).origin;
     return `${origin}${src}`;
   }
-  // Relative path — resolve against mirror base.
+  // Relative path - resolve against mirror base.
   return new URL(src, mirrorBase + '/').toString();
 }
 

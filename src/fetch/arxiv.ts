@@ -5,7 +5,7 @@ import type { PaperCandidate } from './types.js';
 
 /**
  * arXiv search via the public Atom API. No key required, but arXiv asks for
- * ≤1 request per 3 seconds — a single search per `pull` invocation is fine.
+ * ≤1 request per 3 seconds - a single search per `pull` invocation is fine.
  *
  * Docs: https://info.arxiv.org/help/api/user-manual.html
  */

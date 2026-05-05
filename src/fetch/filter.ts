@@ -4,7 +4,7 @@ import type { PaperCandidate } from './types.js';
 /**
  * LLM relevance filter. Given a user query and a list of candidate papers
  * (already over-fetched from arXiv), ask Claude to pick the top N most
- * relevant ones. Pure ranking — no tools, single turn, JSON-only output.
+ * relevant ones. Pure ranking - no tools, single turn, JSON-only output.
  *
  * On any failure (parse error, timeout, fewer IDs than requested) we fall
  * back to the engine's original ranking order. Filtering is best-effort:
@@ -114,7 +114,7 @@ export async function rankByRelevance(opts: RankByRelevanceOptions): Promise<Pap
 
   const options: Options = {
     systemPrompt: SYSTEM_PROMPT,
-    // No tools — pure inference.
+    // No tools - pure inference.
     tools: [],
     allowedTools: [],
     maxTurns: 1,

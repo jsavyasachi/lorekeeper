@@ -10,7 +10,7 @@ import { ingestSource } from './ingest.js';
 
 /**
  * `pull` orchestrator: search → optional LLM filter → per-paper download →
- * per-paper ingest. Errors on individual papers don't halt the batch — they
+ * per-paper ingest. Errors on individual papers don't halt the batch - they
  * land in `skipped` and the loop continues.
  */
 

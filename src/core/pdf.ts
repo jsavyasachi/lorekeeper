@@ -20,7 +20,7 @@ export async function extractPdfText(pdfPath: string): Promise<string> {
 
   const loadingTask = pdfjsLib.getDocument({
     data: uint8,
-    // Silence worker warnings in node — we run the main thread parser.
+    // Silence worker warnings in node - we run the main thread parser.
     useWorkerFetch: false,
     isEvalSupported: false,
     useSystemFonts: true,

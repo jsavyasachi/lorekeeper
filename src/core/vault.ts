@@ -4,7 +4,7 @@ import path from 'node:path';
 /**
  * A vault is a directory containing a `.lorekeeper/` folder. All file operations
  * performed by agent sessions must go through helpers here so paths are verified
- * to stay inside the vault root — this is the security boundary.
+ * to stay inside the vault root - this is the security boundary.
  */
 
 export class VaultError extends Error {

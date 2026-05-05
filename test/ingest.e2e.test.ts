@@ -5,7 +5,7 @@ import os from 'node:os';
 
 // Stub the agent session runner so the test runs offline and deterministically.
 // We still exercise the vault I/O, PDF extraction, and config update paths in
-// ingest.ts — which is where lorekeeper's logic actually lives.
+// ingest.ts - which is where lorekeeper's logic actually lives.
 //
 // The default mock simulates a successful agent run by writing a minimal
 // papers/<slug>.md page that references the source file. This lets ingest.ts's
@@ -88,7 +88,7 @@ describe('ingest E2E (stubbed agent)', () => {
     await initVault({ dir: vaultDir });
 
     // 2. Write a fake PDF
-    const pdfPath = path.join(tmpDir, 'Test Paper — v1.pdf');
+    const pdfPath = path.join(tmpDir, 'Test Paper - v1.pdf');
     await fs.writeFile(pdfPath, buildMinimalPdf('test paper fixture content'));
 
     // 3. Ingest
@@ -132,7 +132,7 @@ describe('ingest E2E (stubbed agent)', () => {
     expect(r2.wasNew).toBe(false);
 
     const config = await loadConfig(vault);
-    // Only the first ingest creates a config entry — re-ingests don't duplicate.
+    // Only the first ingest creates a config entry - re-ingests don't duplicate.
     expect(config.ingested).toHaveLength(1);
   });
 
@@ -194,7 +194,7 @@ describe('ingest E2E (stubbed agent)', () => {
       return { text: 'wrote big.md', ok: true, turns: 5, costUsd: 0.01 };
     });
 
-    // Create a fake "large" PDF — we don't actually need 50k chars of real
+    // Create a fake "large" PDF - we don't actually need 50k chars of real
     // PDF text, we just need extractPdfText to return >50k chars. Easier to
     // bypass: write a .txt source instead, which skips PDF extraction and
     // uses the file contents directly.

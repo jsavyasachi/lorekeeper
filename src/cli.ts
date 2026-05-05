@@ -219,7 +219,7 @@ program
         });
         spinner.stop();
 
-        // Per-paper report — surfaces which papers actually wrote pages and
+        // Per-paper report - surfaces which papers actually wrote pages and
         // their turn counts. Without this, the aggregate "X/Y ingested"
         // line would hide silent-failure cases (Bug 1 from the live test).
         if (result.perPaperResults.length > 0) {
@@ -244,7 +244,7 @@ program
 
         // Sanity check: count papers/*.md actually present on disk vs the
         // op's reported ingested count. If they disagree, the in-memory
-        // tally is lying — print a loud warning.
+        // tally is lying - print a loud warning.
         const papersAfter = await fs.readdir(papersDir).catch(() => [] as string[]);
         const papersAfterCount = papersAfter.filter((f) => f.endsWith('.md')).length;
         const diskDelta = papersAfterCount - papersBeforeCount;
@@ -273,7 +273,7 @@ program
       const vault = await resolveVault(opts.vault);
       const pages = await listPages(vault);
       if (pages.length === 0) {
-        console.log(chalk.dim('(vault has no pages yet — try `lorekeeper ingest <source>`)'));
+        console.log(chalk.dim('(vault has no pages yet - try `lorekeeper ingest <source>`)'));
         return;
       }
       for (const p of pages) console.log(p);
